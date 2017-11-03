@@ -1,0 +1,40 @@
+{
+  "extends": "airbnb-base",
+  "rules": {
+    // Additional, per-project rules...
+    "linebreak-style": [
+      "error",
+      "windows"
+    ],
+    "no-underscore-dangle": 0,
+    "no-unused-vars": "warn",
+    //    "no-undef": 2,
+    "indent": [
+      2,
+      2
+//      {
+//        "FunctionDeclaration": {
+//          "parameters": 2
+//        },
+//        "FunctionExpression": {
+//          "parameters": 2
+//        },
+//        "CallExpression": {
+//          "arguments": 2
+//        }
+//      }
+    ]
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jquery": true
+  },
+  "globals": {
+    //openlayers
+    "ol": true,
+    "globalConfiguration": true,
+    //momentjs
+    "moment": true
+  }
+}
