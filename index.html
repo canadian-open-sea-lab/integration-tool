@@ -7,6 +7,7 @@
 
   <script src="js/plugins/jquery-3.2.1.min.js"></script>
   <script src="js/plugins/bootstrap.min.js"></script>
+  <script src="js/plugins/bootstrap-select.min.js"></script>
   <script src="js/plugins/jquery.cookie.js"></script>
   <script src="js/plugins/moment/moment.min.js"></script>
   <script src="js/plugins/moment/locale/en-ca.js"></script>
@@ -18,7 +19,9 @@
         media="all"/>
   <link rel="stylesheet" href="css/plugins/ol.css"/>
   <link rel="stylesheet" href="css/plugins/bootstrap.min.css">
+  <link rel="stylesheet" href="css/plugins/bootstrap-select.min.css">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
 <div class="container-fluid">
@@ -51,7 +54,7 @@
 </div>
 <div id="main" class="fullHeight">
   <div id="mainContent">
-    <select id="baseLayers"></select>
+    <select class="mapSelectStyle" id="baseLayers"></select>
     <div id="map" class="fullSized"></div>
   </div>
 </div>

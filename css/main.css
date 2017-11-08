@@ -1,11 +1,100 @@
 html, body {
   height: 100%;
-  overflow-y:hidden;
+  overflow-y: hidden;
 }
-
 
 #appHeader {
   height: 40px;
+}
+
+.mapSelectStyle {
+  position: absolute;
+  bottom: 25px;
+  left: 10px;
+  letter-spacing: 1px;
+  color: #fff;
+  text-align: center;
+}
+
+.mapSelectHeader {
+  background-color: rgba(53, 55, 58, .7);
+  color: #ffffff;
+}
+
+.mapSelectHeaderIcon {
+  color: #8cc63e;
+}
+
+.mapButtonStyle {
+  padding: 6px 8px;
+  color: #fff;
+  /*border: solid 1px white;*/
+  border-radius: 20px;
+  height: 2.15em;
+  background-color: rgba(53, 55, 58, .7);
+  font-family: 'Muli', sans-serif;
+  letter-spacing: 1px;
+  /*font-weight: 700;*/
+  font-size: 13px;
+  text-align: center;
+}
+
+.mapButtonStyle:hover {
+  background-color: rgba(1, 13, 1, 0.75);
+  border: solid 1px rgba(255, 248, 253, 0.63);
+  color: #fff;
+}
+
+.mapSelectStyle :hover {
+  color: #fff;
+}
+
+.mapSelectStyle :focus {
+  color: #fff;
+}
+
+.mapSelectStyle .dropdown-menu {
+  background-color: rgba(53, 55, 58, .7) !important;
+}
+
+.mapSelectStyle.bootstrap-select.btn-group .dropdown-toggle .filter-option {
+  text-align: center;
+}
+
+.mapSelectStyle .dropdown-menu {
+  background-color: rgba(53, 55, 58, .7) !important;
+}
+
+.mapSelectStyle .dropdown-menu > li > a:focus {
+  color: #ffcb1f;
+}
+
+.mapSelectStyle .dropdown-menu > li > a:hover {
+  color: #ffcb1f;
+}
+
+.mapSelectStyle .dropdown-menu > li > a > span:hover {
+  color: #ffcb1f;
+}
+
+.mapSelectStyle .dropdown-menu .popover-title {
+  background-color: rgba(53, 55, 58, .7) !important;
+}
+
+.mapSelectStyle .dropdown-menu .popover-title .close {
+  color: #fff;
+  opacity: 0.7;
+}
+
+.mapSelectStyle .dropdown-menu > li > a {
+  background-color: rgba(53, 55, 58, .7) !important;
+  /*font-family: v, Segoe UI, sans-serif;*/
+  font-family: 'Muli', sans-serif;
+  /*font-weight: 700;*/
+  letter-spacing: 1px;
+  font-size: 13px;
+  text-align: center;
+  color: #fff;
 }
 
 #main {
@@ -13,8 +102,8 @@ html, body {
   -moz-box-sizing: border-box; /* Firefox, other Gecko */
   box-sizing: border-box; /* Opera/IE 8+ */
   overflow: hidden;
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
 
 .row-eq-height {

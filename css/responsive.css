@@ -1,0 +1,14 @@
+/* Medium devices (tablets, 992px and down) */
+@media (max-width: 992px) {
+  .glyphicon-standard {
+    font-size: 19px;
+  }
+}
+
+/* Small devices (phones, 768px and down) */
+@media (max-width: 768px) {
+  .mapSelectStyle {
+    bottom: 88px;
+    left: 10px;
+  }
+}

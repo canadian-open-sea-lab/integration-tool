@@ -63,6 +63,14 @@ function initOnBaseLayerSelection() {
   });
 }
 
+function initBootstrapSelect() {
+  $('.mapSelectStyle').selectpicker({
+    style: 'mapButtonStyle',
+    header: '<span class="mapSelectHeader">Select map background' +
+    '<i class="mapSelectHeaderIcon fa fa-map" style="padding-left:5px"></i></span>',
+  });
+}
+
 $(document).ready(() => {
   // TODO: if there are too many ajax calls, combine with $.when a do a preload phase
   loadBaseLayers().done((response) => {
@@ -70,5 +78,6 @@ $(document).ready(() => {
     loadSelectBaseLayers();
     initOnBaseLayerSelection();
     initMap();
+    initBootstrapSelect();
   });
 });
