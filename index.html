@@ -12,7 +12,7 @@
   <script src="js/plugins/moment/moment.min.js"></script>
   <script src="js/plugins/moment/locale/en-ca.js"></script>
   <script src="js/plugins/moment/locale/fr-ca.js"></script>
-  <script src="js/plugins/ol.js"></script>
+  <script src="js/plugins/ol-debug.js"></script>
   <script src="build/index.bundle.js"></script>
 
   <link href="css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"
@@ -55,6 +55,10 @@
 <div id="main" class="fullHeight">
   <div id="mainContent">
     <select class="mapSelectStyle" id="baseLayers"></select>
+    <a id="filtersButton" class="absolute mapButtonStyle noselect">
+      <i class="mapButtonIcon fa fa-book"></i>
+      <span>Filters</span>
+    </a>
     <div id="map" class="fullSized"></div>
   </div>
 </div>

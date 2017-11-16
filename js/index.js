@@ -1,5 +1,7 @@
 import * as configuration from './configuration';
 import OLLayerFactory from './OLLayerFactory';
+import StyleRange from './StyleRange';
+import StyleFunctionGenerator from './services/StyleFunctionGenerator';
 
 let map;
 let baseLayers;
@@ -23,10 +25,23 @@ function initMap() {
   const baseLayer = getBaseLayerFromCode(baseLayerCode);
   const olBaseLayer = OLLayerFactory.generateLayer(baseLayer);
 
+  const sourceParams = {};
+  sourceParams.url = 'https://test-www.ogsl.ca/geoserver/ogsl/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ogsl:view_decision_layer&outputFormat=application%2Fjson&CQL_FILTER=decision_layer_id=2';
+  sourceParams.format = new ol.format.GeoJSON();
+  const gridSource = new ol.source.Vector(sourceParams);
+  const gridLayer = new ol.layer.Vector({ source: gridSource });
+
+  const styleRanges = [];
+  styleRanges.push(new StyleRange('depth', 'rgba(66, 244, 69,0.6)', -89, 0));
+  const styleFunction = StyleFunctionGenerator.generateStyle(styleRanges);
+
+  gridLayer.setStyle(styleFunction);
+  gridLayer.setZIndex(1);
+
   map = new ol.Map({
     target: 'map',
     view: mapview,
-    layers: [olBaseLayer],
+    layers: [olBaseLayer, gridLayer],
   });
 }
 
@@ -41,14 +56,12 @@ function loadBaseLayers() {
 
 function loadSelectBaseLayers() {
   baseLayers.forEach((baseLayer) => {
-    $('#baseLayers').append(
-      `<option value="${baseLayer.code}">${baseLayer.label__}`);
+    $('#baseLayers').append(`<option value="${baseLayer.code}">${baseLayer.label__}`);
   });
 }
 
 function updateMapBaseLayer(baseLayer) {
-  const layerToRemove = map.getLayers().getArray().find(
-    layer => layer.get('id') === baseLayer.id);
+  const layerToRemove = map.getLayers().getArray().find(layer => layer.get('id') === baseLayer.id);
   map.removeLayer(layerToRemove);
   map.addLayer(OLLayerFactory.generateLayer(baseLayer));
 }
@@ -71,6 +84,18 @@ function initBootstrapSelect() {
   });
 }
 
+function initFeatureClick(evt) {
+  map.forEachFeatureAtPixel(evt.pixel, (feature, layer) => {
+    console.log(feature.getProperties());
+  });
+}
+
+function initMapClick() {
+  map.on('singleclick', (evt) => {
+    initFeatureClick(evt);
+  });
+}
+
 $(document).ready(() => {
   // TODO: if there are too many ajax calls, combine with $.when a do a preload phase
   loadBaseLayers().done((response) => {
@@ -78,6 +103,7 @@ $(document).ready(() => {
     loadSelectBaseLayers();
     initOnBaseLayerSelection();
     initMap();
+    initMapClick();
     initBootstrapSelect();
   });
 });

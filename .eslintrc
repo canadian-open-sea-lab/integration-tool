@@ -8,6 +8,7 @@
     ],
     "no-underscore-dangle": 0,
     "no-unused-vars": "warn",
+    "prefer-destructuring": "off",
     //    "no-undef": 2,
     "indent": [
       2,
