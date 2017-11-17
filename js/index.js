@@ -90,6 +90,9 @@ function initFeatureClick(evt) {
     console.log(feature.getProperties());
     PopupService.removePopup('featureClick');
     PopupService.createPopup('featureClick', false);
+    PopupService.addPopupContent('featureClick', 'This is some random shit content');
+    PopupService.removePopupContent('featureClick');
+    PopupService.removePopup('featureClick');
   });
 }
 

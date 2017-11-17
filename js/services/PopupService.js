@@ -8,7 +8,7 @@ const DEFAULT_POPUP_HTML =
   +
   '</div>' +
   '</div>' +
-  '<div class="popup-content"> RANDOM STUFF CONTENT' +
+  '<div class="popup-content">' +
   '</div>' +
   '</div>';
 export default class PopupService {
@@ -27,15 +27,15 @@ export default class PopupService {
   }
 
   static removePopup(id) {
-    // TODO: remove popup with the given id
+    $(`#${id}`).remove();
   }
 
   static addPopupContent(id, content) {
-    // TODO: add popup content for the given id popup
+    $(`#${id}`).find('.popup-content').append(content);
   }
 
   static removePopupContent(id) {
-    // TODO: remove content within the given id popup
+    $(`#${id}`).find('.popup-content').empty();
   }
 }
 
