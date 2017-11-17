@@ -87,9 +87,9 @@ function initBootstrapSelect() {
 }
 
 function initFeatureClick(evt) {
+  PopupService.removePopup('featureClick');
   map.forEachFeatureAtPixel(evt.pixel, (feature, layer) => {
     console.log(feature.getProperties());
-    PopupService.removePopup('featureClick');
     PopupService.createPopup('featureClick', false);
     PopupService.addPopupContent('featureClick', 'This is some random shit content');
   });

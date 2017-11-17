@@ -1,4 +1,4 @@
-const idList = [];
+let idList = [];
 const DEFAULT_POPUP_HTML =
   '<div id="unassigned" class="popup topRight">' +
   '<div class="popupHeader">' +
@@ -27,6 +27,7 @@ export default class PopupService {
   }
 
   static removePopup(id) {
+    idList = idList.filter(identifier => identifier !== id);
     $(`#${id}`).remove();
   }
 
