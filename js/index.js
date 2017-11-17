@@ -86,12 +86,20 @@ function initBootstrapSelect() {
   });
 }
 
+function generateFeatureContent(feature) {
+  const properties = feature.getProperties();
+  let htmlContent = '<div class="row">';
+  htmlContent += `<span class="key">Depth</span><span class="value">${properties.depth}</span>`;
+  return htmlContent;
+}
+
 function initFeatureClick(evt) {
   PopupService.removePopup('featureClick');
   map.forEachFeatureAtPixel(evt.pixel, (feature, layer) => {
     console.log(feature.getProperties());
     PopupService.createPopup('featureClick', false);
-    PopupService.addPopupContent('featureClick', 'This is some random shit content');
+    const htmlContent = generateFeatureContent(feature);
+    PopupService.addPopupContent('featureClick', htmlContent);
   });
 }
 
