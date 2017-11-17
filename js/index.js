@@ -2,6 +2,7 @@ import * as configuration from './configuration';
 import OLLayerFactory from './OLLayerFactory';
 import StyleRange from './StyleRange';
 import StyleFunctionGenerator from './services/StyleFunctionGenerator';
+import PopupService from './services/PopupService';
 
 let map;
 let baseLayers;
@@ -87,6 +88,8 @@ function initBootstrapSelect() {
 function initFeatureClick(evt) {
   map.forEachFeatureAtPixel(evt.pixel, (feature, layer) => {
     console.log(feature.getProperties());
+    PopupService.removePopup('featureClick');
+    PopupService.createPopup('featureClick', false);
   });
 }
 

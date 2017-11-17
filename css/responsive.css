@@ -11,4 +11,8 @@
     bottom: 88px;
     left: 10px;
   }
+  #filtersButton {
+    bottom: 120px;
+    left: 10px;
+  }
 }

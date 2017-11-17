@@ -4,12 +4,29 @@ html, body {
 }
 
 #filtersButton {
-  bottom: 95px;
+  bottom: 60px;
   left: 10px;
+  z-index: 99999;
+  text-decoration:none;
+}
+
+.noDecoration a {
+  text-decoration: none;
 }
 
 .absolute {
   position: absolute;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                   supported by Chrome and Opera */
 }
 
 #appHeader {
