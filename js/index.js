@@ -34,6 +34,7 @@ function initMap() {
 
   const styleRanges = [];
   styleRanges.push(new StyleRange('depth', 'rgba(66, 244, 69,0.6)', -89, 0));
+  styleRanges.push(new StyleRange('wind_speed', 'rgba(66, 244, 69,0.6)', 0, 130));
   const styleFunction = StyleFunctionGenerator.generateStyle(styleRanges);
 
   gridLayer.setStyle(styleFunction);
@@ -91,8 +92,6 @@ function initFeatureClick(evt) {
     PopupService.removePopup('featureClick');
     PopupService.createPopup('featureClick', false);
     PopupService.addPopupContent('featureClick', 'This is some random shit content');
-    PopupService.removePopupContent('featureClick');
-    PopupService.removePopup('featureClick');
   });
 }
 
